@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Back</title>
+    <style>
+        body {
+            margin: 0;
+            background: #F5EFE7;
+            font-family: system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #3b3b3b;
+        }
+
+        .card {
+            background: #FFFFFF;
+            padding: 32px 28px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            width: 340px;
+        }
+
+        .emoji {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0 0 22px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background: #7A8450;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #F5EFE7;
+            color: #3b3b3b;
+        }
+
+        .btn:hover {
+            opacity: 0.92;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="emoji">🍃</div>
+    <h1>Welcome</h1>
+    <p>{{ user_name }}</p>
+
+    <a href="/upload" style="text-decoration:none;">
+        <button class="btn btn-primary">Upload Receipt</button>
+    </a>
+
+    <a href="/dashboard" style="text-decoration:none;">
+        <button class="btn btn-secondary">Go to Dashboard</button>
+    </a>
+
+    <a href="/logout" style="text-decoration:none;">
+        <button class="btn btn-secondary">Logout</button>
+    </a>
+</div>
+
+</body>
+</html>

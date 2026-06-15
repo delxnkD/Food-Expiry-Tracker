@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Receipt</title>
+    <style>
+        body {
+            margin: 0;
+            background: #F5EFE7;
+            font-family: system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #3b3b3b;
+        }
+
+        .card {
+            background: #FFFFFF;
+            padding: 32px 28px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            width: 340px;
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        input[type="file"] {
+            margin-bottom: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #7A8450;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.92;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Upload Your Receipt</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Process Receipt</button>
+    </form>
+
+    <br>
+    <a href="/welcome" style="text-decoration:none; color:#7A8450;">Back</a>
+</div>
+
+</body>
+</html>
