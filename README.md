@@ -1,6 +1,7 @@
 FOOD EXPIRY TRACKER
 
 --Overview--
+
   Food Expiry Tracker is a simple Flask web application that helps users keep track of expiry dates of the food items. Users can upload a receipt image, and the app extracts item names using OCR (Tesseract). Each item is given an estimated expiry date based on a small internal database.
   The app includes:
   - User registration & login
