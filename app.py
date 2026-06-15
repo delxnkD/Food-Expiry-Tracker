@@ -6,17 +6,12 @@ from PIL import Image
 import pytesseract
 import mysql.connector
 
-# -----------------------------
-# APP + CONFIG
-# -----------------------------
 app = Flask(__name__)
-app.secret_key = "key123"  # change this to something random
+app.secret_key = "key123" 
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-# -----------------------------
-# EXPIRY + CATEGORY DATABASES
-# -----------------------------
+# DATABASES
 EXPIRY_DB = {
     "apple": 30, "banana": 4, "orange": 14, "pear": 7, "grapes": 10,
     "strawberry": 3, "blueberry": 7, "kiwi": 7, "watermelon": 5,
@@ -41,9 +36,7 @@ CATEGORY_DB = {
 FRIDGE_CATEGORIES = ["fruit", "dairy", "eggs", "vegetables", "drinks", "meat", "leftovers"]
 PANTRY_CATEGORIES = ["bakery", "snacks", "dry", "canned"]
 
-# -----------------------------
-# HELPER FUNCTIONS
-# -----------------------------
+# FUNCTIONS
 def get_item_details(item_name):
     item_name = item_name.lower()
     return EXPIRY_DB.get(item_name), CATEGORY_DB.get(item_name)
@@ -88,7 +81,7 @@ def process_ocr_and_save(ocr_text, user_id):
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Maria@2004",
+        password=" ",
         database="foodtracker"
     )
     cursor = conn.cursor()
@@ -123,10 +116,7 @@ def process_ocr_and_save(ocr_text, user_id):
     conn.close()
 
     return inserted_count
-
-# -----------------------------
-# ROUTES: AUTH + WELCOME
-# -----------------------------
+# ROUTES
 @app.route("/")
 def home():
     if "user_id" in session:
@@ -144,7 +134,7 @@ def login():
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Maria@2004",
+        password=" ",
         database="foodtracker"
     )
     cursor = conn.cursor(dictionary=True)
@@ -177,7 +167,7 @@ def register():
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Maria@2004",
+        password=" ",
         database="foodtracker"
     )
     cursor = conn.cursor(dictionary=True)
@@ -216,9 +206,6 @@ def logout():
     session.clear()
     return redirect(url_for("home"))
 
-# -----------------------------
-# ROUTE: UPLOAD + OCR
-# -----------------------------
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     if "user_id" not in session:
@@ -253,9 +240,6 @@ def upload():
 
     return render_template("upload.html")
 
-# -----------------------------
-# ROUTE: DASHBOARD
-# -----------------------------
 @app.route("/dashboard")
 def dashboard():
     if "user_id" not in session:
@@ -272,7 +256,7 @@ def dashboard():
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Maria@2004",
+        password=" ",
         database="foodtracker"
     )
     cursor = conn.cursor(dictionary=True)
@@ -305,9 +289,6 @@ def dashboard():
         message=message
     )
 
-# -----------------------------
-# ROUTES: EDIT + DELETE
-# -----------------------------
 @app.route("/delete/<int:item_id>", methods=["POST"])
 def delete_item(item_id):
     if "user_id" not in session:
@@ -316,7 +297,7 @@ def delete_item(item_id):
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Maria@2004",
+        password=" ",
         database="foodtracker"
     )
     cursor = conn.cursor()
@@ -337,7 +318,7 @@ def edit_item(item_id):
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Maria@2004",
+        password=" ",
         database="foodtracker"
     )
     cursor = conn.cursor()
@@ -357,8 +338,5 @@ def edit_item(item_id):
     conn.close()
     return redirect(url_for("dashboard"))
 
-# -----------------------------
-# RUN APP
-# -----------------------------
 if __name__ == "__main__":
     app.run(debug=True)
