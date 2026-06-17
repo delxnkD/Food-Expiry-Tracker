@@ -11,7 +11,7 @@
   - Edit & delete options
   - Alerts for items expiring soon
 
-Features
+### Features
 
   - Upload receipt images (JPG/PNG)
   - OCR text extraction using Tesseract
@@ -22,7 +22,7 @@ Features
   - Edit and delete functionality
   - Expiring‑soon warning banner
 
-Working
+### Working
 
   1. User uploads a receipt image
   2. Tesseract OCR extracts text
@@ -33,7 +33,7 @@ Working
   5. Items are saved to a MySQL database
   6. Dashboard displays items sorted by expiry date
 
-Technologies Used
+### Technologies Used
 
   - Python (Flask)
   - MySQL
@@ -42,7 +42,7 @@ Technologies Used
   - Werkzeug for password hashing
   - Pillow for image processing
 
-Requirements
+### Requirements
 
   This project uses the following Python packages:
   - Flask
@@ -51,7 +51,7 @@ Requirements
   - Pillow
   - Werkzeug
 
-Database
+### Database
 
   The project uses a MySQL database named foodtracker.
   Tables used:
@@ -59,7 +59,7 @@ Database
       food_items
   The schema was created manually in MySQL Workbench.
 
-Running the App
+### Running the App
 
   1. Install the dependencies
   2. Make sure MySQL is running
@@ -67,7 +67,7 @@ Running the App
   4. Run the app: python app.py
   5. Open the app in the browser
 
-Notes
+### Notes
 
   - The database connection password is removed in the code
   - The accuracy of the OCR is dependant on the quality of the image
